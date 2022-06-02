@@ -1,12 +1,9 @@
 #include<stdio.h>
-
 /**
  * main - This is the entry point 
  *
  * Return: Always a 0 which means success
  */
-
-
 int main(void)
 
 {
