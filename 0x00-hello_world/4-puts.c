@@ -1,9 +1,15 @@
 #include<stdio.h>
+
 /**
- * main - This is the entry point 
  *
- * Return: Always a 0 which means success
- */
+ *  * main - Entry point
+ *
+ *   *
+ *
+ *    * Return: Always 0 (Success)
+ *
+ *     */
+
 int main(void)
 
 {
