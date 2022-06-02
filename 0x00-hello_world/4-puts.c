@@ -2,13 +2,11 @@
 
 /**
  *
- *  * main - Entry point
+ *  main - This is the Entry point
  *
- *   *
  *
- *    * Return: Always 0 (Success)
- *
- *     */
+ *  Return: Always 0 which means (Success)
+ */
 
 int main(void)
 
