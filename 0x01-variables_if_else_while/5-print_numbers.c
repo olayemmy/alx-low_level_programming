@@ -11,16 +11,16 @@ int main(void)
 
 {
 
-		int digit;
+	int digit;
 
 
 
-		for (digit = 0; digit < 10; digit++)
+	for (digit = 0; digit < 10; digit++)
 
-			printf("%i", digit);
+		printf("%i", digit);
 
-			putchar('\n');
+		putchar('\n');
 
-		return (0);
+	return (0);
 
 }
