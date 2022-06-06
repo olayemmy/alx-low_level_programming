@@ -9,23 +9,17 @@
 int main(void)
 
 {
-	int i, j;
+	int i;
 
-	for (i = 48; i < 58; i++)
+	int j;
+
+	for (i = 0; i <= 9; i++)
 	{
-		for (j = 48; j < 58; j++)
+		for (j = i + 1; j <= 9; j++)
 		{
-			if (i == j)
-			{
-				continue;
-			}
-			putchar(i);
-			putchar(j);
-			if (i == 46 && j == 57)
-			{
-				break;
-			}
-			else
+			putchar(i + '0');
+			putchar(j + '0');
+			if (i < 8)
 			{
 				putchar(',');
 				putchar(' ');
