@@ -11,17 +11,18 @@ int main(void)
 
 {
 
-	int digit;
+	int i;
 
 
 
-	for (digit = 0; digit < 10; digit++)
+	for (i = 0; i < 10; i++)
 	{
 
-		printf("%i", digit\n);
-
-		/*putchar('\n');*/
+		printf("%d", i);
 	}
+
+
+	putchar('\n');
 
 	return (0);
 
