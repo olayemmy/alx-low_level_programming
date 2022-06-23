@@ -2,7 +2,7 @@
 
 /**
  * prime_a - main - check the code
- * @a: number 
+ * @a: number
  * @b: number of power
  * Return: Always 0.
  */
