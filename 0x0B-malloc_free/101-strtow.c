@@ -61,9 +61,10 @@ char **strtow(char *str)
 			}
 			for (j = 0; al <= c; al++, j++)
 				aout[i][j] = str[al];
-			aout[i][j] = '\0\;
+			aout[i][j] = '\0';
 		}
 
 		aout[i] = NULL;
 		return (aout);
+	}
 }
