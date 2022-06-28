@@ -2,69 +2,73 @@
 #include <stdlib.h>
 
 /**
- * ch_free_grid - frees a 2 dimesional array.
- * @grid: multidimensional array of char.
- * @height: height of the array.
- *
- * Return: no return
+ * wrdcnt - counts the number of words in a string
+ * @s: string
+ * Return: int of number of words
  */
-
-void ch_free_grid(char **grid, unsigned int height)
+int wrdcnt(char *s)
 {
-	if (grid != NULL && height != 0)
+	int i, n = 0;
+
+	for (i = 0; s[i]; i++)
 	{
-		for (; height > 0; height--)
-			free(grid[height]);
-		free(grid[height]);
-		free(grid);
+		if (s[i] == ' ')
+		{
+			if (s[i + 1] != ' ' && s[i + 1] != '\0')
+				n++;
+		}
+		else if (i == 0)
+			n++;
 	}
+	n++;
+	return (n);
 }
 
 /**
- * strtow - splits a string into words.
- * @str: string.
- *
- * Return: pointer of an array of integers
+ * strtow - splits a string into words
+ * @str: string
+ * Return: pointer to an array of strings
  */
-
 char **strtow(char *str)
 {
-	char **aout;
-	unsigned int c, height, i, j, al;
+	int i, j, k, l, n = 0, ch = 0;
+	char **x;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (c = height = 0; str[c] != '\0'; c++)
-		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
-			height++;
-	aout = malloc((height + 1) * sizeof(char *));
-	if (aout == NULL || height == 0)
-	{
-		free(aout);
+	n = wrdcnt(str);
+	if (n == 1)
 		return (NULL);
-	}
-	for (i = al = 0; i < height; i++)
+	x = (char **)malloc(n * sizeof(char *));
+	if (x == NULL)
+		return (NULL);
+	x[n - 1] = NULL;
+	i = 0;
+	while (str[i])
 	{
-		for (c = al; str[c] != '\0'; c++)
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		{
-			if (str[c] == ' ')
-				al++;
-			if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
+				;
+			j++;
+			x[ch] = (char *)malloc(j * sizeof(char));
+			j--;
+			if (x[ch] == NULL)
 			{
-				aout[i] = malloc((c - al + 2) * sizeof(char));
-				if (aout[i] == NULL)
-				{
-					ch_free_grid(aout, i);
-					return (NULL);
-				}
-				break;
+				for (k = 0; k < ch; k++)
+					free(x[k]);
+				free(x[n - 1]);
+				free(x);
+				return (NULL);
 			}
-			for (j = 0; al <= c; al++, j++)
-				aout[i][j] = str[al];
-			aout[i][j] = '\0';
+			for (l = 0; l < j; l++)
+				x[ch][l] = str[i + l];
+			x[ch][l] = '\0';
+			ch++;
+			i += j;
 		}
-
-		aout[i] = NULL;
-		return (aout);
+		else
+			i++;
 	}
+	return (x);
 }
