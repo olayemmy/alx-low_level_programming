@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include "lists.h"
 
-/*
- * @listint_len - Prints the number of elemets in linked listint_t list
+/**
+ * listint_len - Prints the number of elemets in linked listint_t list
  * @h: Pointer to the head node of the linked list
  * Return: size_t, the number of nodes in alinked list
  */
